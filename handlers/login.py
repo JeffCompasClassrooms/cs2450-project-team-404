@@ -3,6 +3,8 @@ import flask
 from handlers import copy
 from db import posts, users, helpers
 
+from handlers import verify
+
 blueprint = flask.Blueprint("login", __name__)
 
 @blueprint.route('/loginscreen')
@@ -64,7 +66,22 @@ def registeruser():
     password = flask.request.form.get('password')
     c_password = flask.request.form.get('cpassword') # Used to confirm if password was typed correctly
 
+
+
+
+
     if(c_password != password):
+        flask.flash('Passwords do not match.', 'warning')
+        return flask.redirect(flask.url_for('login.register'))
+
+    message, isTrue = verify.verify_password(password)
+
+    if(not isTrue):
+        flask.flash(message, 'warning')
+        return flask.redirect(flask.url_for('login.register'))
+
+    if(not verify.verify_username(username)):
+        flask.flash('You are already logged in.', 'warning')
         return flask.redirect(flask.url_for('login.register'))
 
     users.new_user(db, username, email, password)
@@ -115,6 +132,8 @@ def index():
 @blueprint.route('/delete', methods=['POST'])
 def delete():
     db = helpers.load_db()
+
+    #TODO: Make this so that it does not rely on cookies, but rather on the saved information when the user is logged in (in case they don't want to use cookies)
 
     username = flask.request.cookies.get('username')
     password = flask.request.cookies.get('password')
