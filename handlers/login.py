@@ -101,10 +101,12 @@ def index():
         all_posts += posts.get_posts(db, friend)
     # sort posts
     sorted_posts = sorted(all_posts, key=lambda post: post['time'], reverse=True)
+    tags_table = db.table("tags")
+    tags = {entry['tag'] for entry in tags_table.all()}
 
     return flask.render_template('feed.html', title=copy.title,
             subtitle=copy.subtitle, user=user, username=username,
-            friends=friends, posts=sorted_posts)
+            friends=friends, posts=sorted_posts, tags=tags)
 
 
 ''''@blueprint.route('/register')
