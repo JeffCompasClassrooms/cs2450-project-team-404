@@ -8,8 +8,9 @@ def new_user(db, username, email, password):
     user_record = {
             'username': username,
             'password': password,
+            'friends': [],
             'email': email,
-            'friends': []
+            'tags' : []
             }
     return users.insert(user_record)
 

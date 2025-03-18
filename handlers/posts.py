@@ -18,7 +18,11 @@ def post():
         return flask.redirect(flask.url_for('login.loginscreen'))
 
     post = flask.request.form.get('post')
-    posts.add_post(db, user, post)
+    tags = flask.request.form.getlist('tags')
+    if not tags or 'select' in tags:
+        flask.flash('Must select one or more tags.', 'danger')
+        return flask.redirect(flask.url_for('login.index'))
+    posts.add_post(db, user, post, tags)
 
     return flask.redirect(flask.url_for('login.index'))
 
