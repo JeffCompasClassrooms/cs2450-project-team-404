@@ -18,5 +18,11 @@
     </div>
     {% endfor %}
   </div>
+
+<!-- TODO: Get the unfriend functionality working-->
+
+    <form action="{{ url_for('friends.unfriend') }}">
+        <input class="btn btn-danger" type="submit" name="type" value="Delete">
+    </form>
 </div>
 {% endblock %}

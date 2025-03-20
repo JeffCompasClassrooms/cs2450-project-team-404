@@ -5,7 +5,7 @@
   <div class="col-sm-6 mx-auto">
     <div class="card card-body bg-light">
       
-      <form method="post" action="/login">
+      <form method="post" action="{{ url_for('login.registeruser') }}">
         <fieldset>
           <legend style="display: flex; justify-content: center;font-size: 32px;">Sign Up</legend>
           <hr />
@@ -25,13 +25,22 @@
             <label for="Cpassword">Confirm Password</label>
             <input type="password" class="form-control" name="cpassword">
           </div>
+
+          <!--Kyler: start of code for adding tags to profile at signup. Wasnt working so I was going to find out a different way to do it after pushing this current code-->
+          <!--<div class="form-group">
+            <lable for="choices">Select one or more tags:</lable>
+            <select id="choices" name="tags">
+              {% for tag in tags %}
+                <option value="{{ tag }}">{{ tag }}</option>
+                {% endfor %}
+            </select>
+          </div>-->
           <div class="form-group">
             <input class="btn btn-primary" type="submit" name="type" value="Register">
             <p class="signup" style="margin-top: 10px;">Already have an account?
                 <a rel="noopener noreferrer" href="{{ url_for('login.loginscreen') }}" class="" id="login_link" >Login here!</a>
             </p>
             <!--<input class="btn btn-success" type="submit" name="type" value="Create"> -->
-          </div>
         </fieldset>
       </form>
     </div>
