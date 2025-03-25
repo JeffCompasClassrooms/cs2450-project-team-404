@@ -1,6 +1,6 @@
 import tinydb
 
-def new_user(db, username, email, password):
+def new_user(db, username, email, password, tags):
     users = db.table('users')
     User = tinydb.Query()
     if users.get(User.username == username):
@@ -10,7 +10,7 @@ def new_user(db, username, email, password):
             'password': password,
             'friends': [],
             'email': email,
-            'tags' : []
+            'tags' : tags
             }
     return users.insert(user_record)
 
@@ -60,3 +60,9 @@ def get_user_friends(db, user):
     for friend in user['friends']:
         friends.append(users.get(User.username == friend))
     return friends
+
+def get_user_tags(db, user):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == user)
+    return  user_data['tags']
