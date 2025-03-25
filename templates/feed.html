@@ -18,7 +18,7 @@
 
           <label>Choose one or more tag(s):</label>
           <div id="tag-container">
-            {% for tag in tags %}
+            {% for tag in user_tags %}
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" name="tags" value="{{ tag }}" id="tag_{{ tag }}">
                 <label class="form-check-label" for="tag_{{ tag }}">
@@ -46,32 +46,6 @@
         </form>
       </div>
     </div>
-
-    <script>
-      function addTag() {
-        const container = document.getElementById('tag-container');
-        const div = document.createElement('div');
-        div.classList.add('tag-field');
-        div.style.marginTop = "10px";
-
-        const select = document.createElement('select');
-        select.name = 'tags';
-        select.classList.add('form-control');
-
-        const firstSelect = document.querySelector('select');
-
-        const options = firstSelect.options;
-        for (let i = 0; i < options.length; i++) {
-            let option = document.createElement('option');
-            option.value = options[i].value;
-            option.text = options[i].text;
-            select.appendChild(option);
-        }
-        div.appendChild(select);
-        container.appendChild(select);
-      }
-
-    </script>
 
     <h2 class="">My Feed</h2>
     {% for post in posts %}
@@ -126,6 +100,16 @@
             Sorry, no friends!
           </p>
         {% endif %}
+      </div>
+      <div class="card bg-light">
+        <div class="card-body">
+          <h3 class="card-title">My Tags</h3>
+            <ul>
+              {% for user_tag in user_tags %}
+                <li>{{ user_tag }}</li>
+              {% endfor %}
+            </ul>
+        </div>
       </div>
     </div>
   </div>
