@@ -51,10 +51,13 @@ def register():
     username = flask.request.form.get('username')
     password = flask.request.form.get('password')
 
+    tags_table = db.table('tags')
+    tags = [tag['tag'] for tag in tags_table.all()]
+
     submit = flask.request.form.get('type')
 
 
-    return flask.render_template('register.html', title=copy.title, subtitle=copy.subtitle)
+    return flask.render_template('register.html', title=copy.title, subtitle=copy.subtitle, tags=tags)
 
 
 @blueprint.route('/registeruser', methods=['POST'])
@@ -63,6 +66,7 @@ def registeruser():
 
     username = flask.request.form.get('username')
     email = flask.request.form.get('email')
+    tags = flask.request.form.getlist('tags')
     password = flask.request.form.get('password')
     c_password = flask.request.form.get('cpassword') # Used to confirm if password was typed correctly
 
@@ -83,8 +87,12 @@ def registeruser():
     if(not verify.verify_username(username)):
         flask.flash('You are already logged in.', 'warning')
         return flask.redirect(flask.url_for('login.register'))
+    
+    if not tags or 'select' in tags:
+        flask.flash('Must select one or more tags.', 'danger')
+        return flask.redirect(flask.url_for('login.register'))
 
-    users.new_user(db, username, email, password)
+    users.new_user(db, username, email, password, tags)
 
     return flask.redirect(flask.url_for('login.index'))
 
@@ -116,9 +124,15 @@ def index():
 
     # get the info for the user's feed
     friends = users.get_user_friends(db, user)
+    posts_table = db.table("posts")
     all_posts = []
-    for friend in friends + [user]:
-        all_posts += posts.get_posts(db, friend)
+    user_tags = users.get_user_tags(db, username)
+    for post in posts_table.all():
+        for tag in post['tags']:
+            if tag in user_tags:
+                all_posts.append(post)
+    #for friend in friends + [user]:
+        #all_posts += posts.get_posts(db, friend)
     # sort posts
     sorted_posts = sorted(all_posts, key=lambda post: post['time'], reverse=True)
     tags_table = db.table("tags")
@@ -126,7 +140,7 @@ def index():
 
     return flask.render_template('feed.html', title=copy.title,
             subtitle=copy.subtitle, user=user, username=username,
-            friends=friends, posts=sorted_posts, tags=tags)
+            friends=friends, posts=sorted_posts, tags=tags, user_tags=user_tags)
 
 
 
