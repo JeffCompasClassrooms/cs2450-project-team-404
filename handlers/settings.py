@@ -18,7 +18,13 @@ def settings():
         flask.flash('You need to be logged in to do that.', 'danger')
         return flask.redirect(flask.url_for('login.loginscreen'))
     
-    return flask.render_template('settings.html', title=copy.title, subtitle=copy.subtitle, user=user, username=username)
+    user_tags = users.get_user_tags(db, username)
+    tags_table = db.table("tags")
+    tags = {entry['tag'] for entry in tags_table.all()}
+    
+    has_all_tags = len(user_tags) == len(tags)
+
+    return flask.render_template('settings.html', title=copy.title, subtitle=copy.subtitle, user=user, username=username, user_tags=user_tags, tags=tags, has_all_tags=has_all_tags)
 
 @blueprint.route('/change-user', methods=['POST'])
 def change_username():
@@ -89,3 +95,52 @@ def change_password():
     flask.flash('Password was successfully changed!', 'success')
 
     return resp
+
+@blueprint.route('/add-tag', methods=['POST'])
+def add_tag():
+    db = helpers.load_db()
+
+    username = flask.request.cookies.get('username')
+    password = flask.request.cookies.get('password')
+    user = users.get_user(db, username, password)
+    user_tags = users.get_user_tags(db, username)
+    selected_tags = flask.request.form.getlist('tags')
+
+    if(not selected_tags):
+        flask.flash('You must select one or more tags.', 'warning')
+        return flask.redirect(flask.url_for('settings.settings'))
+    
+    users.add_user_tag(db, username, selected_tags)
+    flask.flash('Tag(s) were successfully added!', 'success')
+
+    return flask.redirect(flask.url_for('settings.settings'))
+
+@blueprint.route('/remove-tag', methods=["POST"])
+def remove_tag():
+    db = helpers.load_db()
+
+    username = flask.request.cookies.get('username')
+    password = flask.request.cookies.get('password')
+    user = users.get_user(db, username, password)
+    user_tags = users.get_user_tags(db, username)
+    selected_tags = flask.request.form.getlist('tags')
+
+    tags_table = db.table("tags")
+    all_tags = {entry['tag'] for entry in tags_table.all()}
+
+    if(not selected_tags):
+        flask.flash('You must select one or more tags.', 'warning')
+        return flask.redirect(flask.url_for('settings.settings'))
+
+    if(len(user_tags) <= 1):
+        flask.flash('You must keep at least one tag.', 'warning')
+        return flask.redirect(flask.url_for('settings.settings'))
+
+    if(len(selected_tags) == len(all_tags)):
+        flask.flash('You must keep at least one tag.', 'warning')
+        return flask.redirect(flask.url_for('settings.settings'))
+
+    users.remove_user_tag(db, username, selected_tags)
+    flask.flash('Tag(s) were successfully removed!', 'success')
+
+    return flask.redirect(flask.url_for('settings.settings'))

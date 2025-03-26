@@ -67,6 +67,24 @@ def get_user_tags(db, user):
     user_data = users.get(User.username == user)
     return  user_data['tags']
 
+def add_user_tag(db, username, new_tags):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == username)
+    for tag in new_tags:
+        user_data['tags'].append(tag)
+    users.update(user_data, User.username == username)
+    return True
+
+def remove_user_tag(db, username, tags):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == username)
+    for tag in tags:
+        user_data['tags'].remove(tag)
+    users.update(user_data, User.username == username)
+    return True
+
 def change_username(db, current_username, new_username):
     users = db.table('users')
     User = tinydb.Query()
