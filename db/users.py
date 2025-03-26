@@ -66,3 +66,19 @@ def get_user_tags(db, user):
     User = tinydb.Query()
     user_data = users.get(User.username == user)
     return  user_data['tags']
+
+def change_username(db, current_username, new_username):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == current_username)
+    user_data['username'] = new_username
+    users.update(user_data, User.username == current_username)
+    return True
+
+def change_password(db, username, new_password):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == username)
+    user_data['password'] = new_password
+    users.update(user_data, User.username == username)
+    return True

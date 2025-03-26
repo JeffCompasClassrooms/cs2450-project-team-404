@@ -28,10 +28,16 @@
                 <a class="nav-link" href="https://www.spacex.com">Space X</a>
               </li>
             </ul>
-            <ul class="navbar-nav pull-right">
+            <ul class="navbar-nav pull-right d-flex">
               {% if user %}
-              <form method="post" action="/logout">
+              <form method="post" action="/logout" class="mr-2">
                 <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
+              </form>
+              <form action="/settings" class="mr-2">
+                <button type="submit" class="form-control btn btn-secondary" name="settings">Settings</button>
+              </form>
+              <form action="{{ url_for('login.index') }}">
+                <button type="submit" class="form-control btn btn-secondary" name="home">Home</button>
               </form>
               {% endif %}
             </ul>
