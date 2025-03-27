@@ -22,12 +22,14 @@ def loginscreen():
             flask.flash('You are already logged in.', 'warning')
             return flask.redirect(flask.url_for('login.index'))
 
+    print("Rendering login screen")  # Adding logging for debugging purposes
     return flask.render_template('login.html', title=copy.title,
             subtitle=copy.subtitle)
 
 @blueprint.route('/login', methods=['POST'])
 def login():
     """Log in the user.
+    # Adding logging for debugging purposes
 
     Using the username and password fields on the form, create, delete, or
     log in a user, based on what button they click.
@@ -162,7 +164,3 @@ def delete():
 
 
     return resp
-
-
-
-
