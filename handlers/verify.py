@@ -1,7 +1,14 @@
+import re
+
 def verify_username(username):
     if(len(username) < 6):
         return False
     return True
+
+
+def special_characters(char):
+    characters = "'!@#$%^&*()-+?_=,<>/'"
+    return char in characters
 
 
 def verify_password(password):
@@ -15,5 +22,9 @@ def verify_password(password):
 
     if(not any(char.islower() for char in password)):
         return ("Please make sure you have a lowercase letter",False)
+
+
+    if(not any(special_characters(char) for char in password)):
+        return ("Please make sure you have a special character",False)
 
     return ("All Good!", True)
