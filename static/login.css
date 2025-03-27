@@ -9,6 +9,8 @@ body {
     
 }
 
+
+
 div {
     color: rgb(0, 0, 0) !important;
 }
@@ -24,12 +26,16 @@ div {
     background-color: rgba(39, 44, 56, 0.979) !important;
 }
 
+.LG {
+    
+}
+
 .navbar {
     background-color: rgba(65, 105, 225, 0.185);
     justify-content: flex-start;
 }
 
-a {
+.u {
     color: rgb(230, 217, 217) !important;
 }
 
@@ -38,7 +44,10 @@ a:hover {
 }
 
 .lead {
-    text-align: center;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto !important;
 }
 
 .card-body {
@@ -57,4 +66,16 @@ a:hover {
         height: 50px; /* Adjust logo size for smaller screens */
         width: 50px;
     }
+}
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.h{
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    transform: translate(-50%, -50%);
 }
