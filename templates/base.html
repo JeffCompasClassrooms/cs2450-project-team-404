@@ -11,26 +11,24 @@
     </head>
 
     <body>
-       <nav class="navbar" class="navbar navbar-expand-lg navbar-dark bg-primary">
+       <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <img src="static/images/Designer.jpeg" alt="Logo" class="navbar-logo">
-        <h1><a href="/">{{title}}</a></h1>
-          <!--p class="lead">{{subtitle}}</p-->
-        <div class="container">
-          <a class="navbar-brand" href="/"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
+        <h1><a class="navbar-brand" href="/">{{title}}</a></h1>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
                 <a class="nav-link" href="https://utahtech.edu">Utah Tech</a>
+
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://www.spacex.com">Space X</a>
               </li>
             </ul>
             <ul class="navbar-nav pull-right d-flex">
+
               {% if user %}
               <form method="post" action="/logout" class="mr-2">
                 <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>

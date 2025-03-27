@@ -1,15 +1,22 @@
 .jumbotron {
     padding: 0.5em 0.6em;
-    h1 {
-        font-size: 2em;
-    }
-    p {
-        font-size: 1.2em;
-        .btn {
-            padding: 0.5em;
-        }
-    }
+    background-color: rgba(65, 105, 225, 0.2); /* Added background color for visibility */
+    border-radius: 10px; /* Added rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
 }
-.t{
-    
+
+.jumbotron h1 {
+    font-size: 2em;
+    color: white; /* Changed text color for better contrast */
+}
+
+.jumbotron p {
+    font-size: 1.2em;
+    color: white; /* Changed text color for better contrast */
+}
+
+.jumbotron .btn {
+    padding: 0.5em;
+    background-color: #007bff; /* Ensured button color matches theme */
+    border-radius: 5px; /* Added rounded corners for buttons */
 }
