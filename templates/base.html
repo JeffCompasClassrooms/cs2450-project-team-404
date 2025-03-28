@@ -38,15 +38,19 @@
             </ul>
             <ul class="navbar-nav pull-right d-flex">
 
-              
-              <form method="post" action="/logout" class="mr-2 LG">
-                <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
+
+              {% if user %}
+              <form action="/profile" class="mr-2">
+                <button type="submit" class="form-control btn btn-secondary" name="profile">Profile</button>
               </form>
               <form action="/settings" class="mr-2">
                 <button type="submit" class="form-control btn btn-secondary" name="settings">Settings</button>
               </form>
-              <form action="{{ url_for('login.index') }}">
+              <form action="{{ url_for('login.index') }}" class="mr-2">
                 <button type="submit" class="form-control btn btn-secondary" name="home">Home</button>
+              </form>
+              <form method="post" action="/logout" class="mr-2">
+                <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
               </form>
               {% endif %}
             </ul>
