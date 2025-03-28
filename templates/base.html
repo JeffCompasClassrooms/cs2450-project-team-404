@@ -13,25 +13,35 @@
     <body>
        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <img src="static/images/Designer.jpeg" alt="Logo" class="navbar-logo">
-        <h1><a class="navbar-brand" href="/">{{title}}</a></h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="https://utahtech.edu">Utah Tech</a>
+          {% if user %} 
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="https://musescore.com/">MuseScore</a>
               </li>
+
               <li class="nav-item">
                 <a class="nav-link" href="https://www.spacex.com">Space X</a>
               </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/settings">Settings</a>
+              </li>
+
             </ul>
             <ul class="navbar-nav pull-right d-flex">
 
+
               {% if user %}
               <form action="/profile" class="mr-2">
-                <button type="submit" class="form-control btn btn-secondary" name="logout">Profile</button>
+                <button type="submit" class="form-control btn btn-secondary" name="profile">Profile</button>
               </form>
               <form action="/settings" class="mr-2">
                 <button type="submit" class="form-control btn btn-secondary" name="settings">Settings</button>
@@ -49,8 +59,8 @@
       </nav>
 
       <div class="jumbotron">
-        <div class="container">
-          <!--<h1><a href="/">{{title}}</a></h1-->
+        <div class="container flex">
+          <h1 class="h">{{title}}</h1>
           <p class="lead">{{subtitle}}</p>
         </div>
       </div>
