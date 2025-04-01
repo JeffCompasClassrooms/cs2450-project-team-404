@@ -26,20 +26,39 @@
               <li class="nav-item">
                 <a class="nav-link" href="https://www.spacex.com">Space X</a>
               </li>
-            </ul>
-            <ul class="navbar-nav pull-right d-flex">
 
               {% if user %}
-              <form method="post" action="/logout" class="mr-2">
-                <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
-              </form>
+              <li class="nav-item">
+                <a class="nav-link" href="/settings">Settings</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              {% endif %}
+            </ul>
+
+            <ul class="navbar-nav pull-right d-flex">
+
+            {% if user %}
+            <form method="post" action="/logout" class="mr-2">
+              <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
+            </form>
+            {% endif %}
+            <!--These are just the old buttons for settings, home, and logout-->
+            <!--<ul class="navbar-nav pull-right d-flex">
+
+              {% if user %}
+              
               <form action="/settings" class="mr-2">
                 <button type="submit" class="form-control btn btn-secondary" name="settings">Settings</button>
               </form>
-              <form action="{{ url_for('login.index') }}">
+              <form action="{{ url_for('login.index') }}" class="mr-2">
                 <button type="submit" class="form-control btn btn-secondary" name="home">Home</button>
               </form>
-              {% endif %}
+              <form method="post" action="/logout" class="mr-2">
+                <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
+              </form>
+              {% endif %}-->
             </ul>
           </div>
         </div>
