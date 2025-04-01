@@ -36,6 +36,16 @@
       </div>
     </div>
 
+    <div>
+      {% for tag in tags %}
+        {% if tag == selected_tag %}
+          <h3><a href="{{ url_for('login.index', tag=tag) }}" class="text-primary">{{ tag }}</a></h3>
+        {% else %}
+          <h3><a href="{{ url_for('login.index', tag=tag) }}">{{ tag }}</a></h3>
+        {% endif %}
+      {% endfor %}
+    </div>
+
     <h2 class="">My Feed</h2>
     {% for post in posts %}
     <div class="card bg-light">
