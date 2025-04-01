@@ -43,13 +43,32 @@
         <h4 class="card-title">{{ post.user }}</h4>
         <h6 class="card-subtitle mb-2 text-muted">{{ post.time|convert_time }}</h6>
         <p class="card-text">{{ post.text }}</p>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <form action="/likepost" method="post">
+            <input type="hidden" name="post_id" value="{{ post.id }}">
+            <button type="submit" class="btn btn-primary" name="like-post">like</button>
+          </form>
+          <p class="card-text">
+            {{ post.likes }}
+          </p>
+
+          <form action="/dislikepost" method="post">
+            <input type="hidden" name="post_id" value="{{ post.id }}">
+            <button type="submit" class="btn btn-primary" name="dislike-post">dislike</button>
+          </form>
+          <p class="card-text">
+            {{ post.dislikes }}
+          </p>
+        </div>
+          
         <p class="card-text">
           Tags:
           {% for tag in post.tags %}
             <span class="badge bg-secondary">{{ tag }}</span>
           {% endfor %}
           </p>
-
+        
         {% if post.user == username %}
         <form action="/postdelete" method="post">
           <input type="hidden" name="_method" value ="DELETE">
