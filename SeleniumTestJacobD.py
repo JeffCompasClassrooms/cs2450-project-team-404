@@ -20,20 +20,20 @@ try:
         print("[FAILED] - Login button not found.")
 
 
-    utah_tech_link = driver.find_element(By.CSS_SELECTOR, "a[class= 'nav-link'][href = 'https://utahtech.edu']")
-    if utah_tech_link:
+    pygame_link = driver.find_element(By.CSS_SELECTOR, "a[class= 'nav-link'][href = 'https://www.pygame.org/wiki/Contribute']")
+    if pygame_link:
         print("[PASSED] - link Exists.")
     else:
         print("[FAILED] - link not found.")
 
-    utah_tech_link.click()
+    pygame_link.click()
     time.sleep(5)
     # Validate the resulting page or action (e.g., a redirect)
-    expected_url = 'https://utahtech.edu/'  
+    expected_url = 'https://www.pygame.org/wiki/Contribute'  
     if driver.current_url == expected_url:
-        print("[PASSED] - 'utah tech link' button redirected correctly.")
+        print("[PASSED] - 'PYgame link' button redirected correctly.")
     else:
-        print(f"[FAILED] - 'utah tech link' button redirection failed. Current URL: {driver.current_url}")
+        print(f"[FAILED] - 'PYgame link' button redirection failed. Current URL: {driver.current_url}")
 except Exception as e:
     print("Error:", e)
 

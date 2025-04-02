@@ -108,20 +108,20 @@ try:
     time.sleep(2)
 
     print("--= Beginning Tests =--")
-    space_X_link = driver.find_element(By.CSS_SELECTOR, "a[class= 'nav-link'][href = 'https://www.spacex.com']")
-    if space_X_link:
+    profile_link = driver.find_element(By.CSS_SELECTOR, "a[class= 'nav-link'][href = '/profile']")
+    if profile_link:
         print("[PASSED] - link Exists.")
     else:
         print("[FAILED] - link not found.")
 
-    space_X_link.click()
+    profile_link.click()
     time.sleep(10)
     # Validate the resulting page or action (e.g., a redirect)
-    expected_url = 'https://www.spacex.com/'  
+    expected_url = 'http://localhost:5000/profile'  
     if driver.current_url == expected_url:
-        print("[PASSED] - 'space X' button redirected correctly.")
+        print("[PASSED] - 'Profile' button redirected correctly.")
     else:
-        print(f"[FAILED] - 'space X' button redirection failed. Current URL: {driver.current_url}")
+        print(f"[FAILED] - 'Profile' button redirection failed. Current URL: {driver.current_url}")
 
 except Exception as e:
     print("Error:", e)
