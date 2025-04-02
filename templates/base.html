@@ -13,7 +13,7 @@
     <body>
        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <img src="static/images/Designer.jpeg" alt="Logo" class="navbar-logo">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" name="ham" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -29,18 +29,25 @@
               <a class="nav-link" href="/settings">Settings</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://musescore.com/">MuseScore</a>
+                <a class="nav-link" href="https://musescore.com">MuseScore</a>
               </li>
 
               <li class="nav-item">
                 <a class="nav-link" href="https://www.spacex.com">Space X</a>
               </li>
             </ul>
-
             <ul class="navbar-nav pull-right d-flex">
-            <form method="post" action="/logout" class="mr-2">
-              <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
-            </form>
+            {% endif %}
+
+            {% if user %}
+              <form action="/profile" class="mr-2">
+                <button type="submit" class="form-control btn btn-secondary" name="profile">Profile</button>
+              </form>
+              <form method="post" action="/logout" class="mr-2">
+                <button type="submit" class="form-control btn btn-secondary" name="logout">Logout</button>
+              </form>
+              {% endif %}
+
             </ul>
             {% endif %}
           </div>
