@@ -1,6 +1,6 @@
 import tinydb
 
-def new_user(db, username, email, password):
+def new_user(db, username, email, password, tags):
     users = db.table('users')
     User = tinydb.Query()
     if users.get(User.username == username):
@@ -8,8 +8,9 @@ def new_user(db, username, email, password):
     user_record = {
             'username': username,
             'password': password,
+            'friends': [],
             'email': email,
-            'friends': []
+            'tags' : tags
             }
     return users.insert(user_record)
 
@@ -59,3 +60,43 @@ def get_user_friends(db, user):
     for friend in user['friends']:
         friends.append(users.get(User.username == friend))
     return friends
+
+def get_user_tags(db, user):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == user)
+    return  user_data['tags']
+
+def add_user_tag(db, username, new_tags):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == username)
+    for tag in new_tags:
+        user_data['tags'].append(tag)
+    users.update(user_data, User.username == username)
+    return True
+
+def remove_user_tag(db, username, tags):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == username)
+    for tag in tags:
+        user_data['tags'].remove(tag)
+    users.update(user_data, User.username == username)
+    return True
+
+def change_username(db, current_username, new_username):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == current_username)
+    user_data['username'] = new_username
+    users.update(user_data, User.username == current_username)
+    return True
+
+def change_password(db, username, new_password):
+    users = db.table('users')
+    User = tinydb.Query()
+    user_data = users.get(User.username == username)
+    user_data['password'] = new_password
+    users.update(user_data, User.username == username)
+    return True

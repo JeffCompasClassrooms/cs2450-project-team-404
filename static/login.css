@@ -1,0 +1,60 @@
+
+h1 {
+    font-size: 3em;
+}
+
+body {
+    background-color: rgba(47, 79, 79, 1);
+    font-family: Arial, sans-serif; /* Added font family for better readability */
+    
+}
+
+div {
+    color: rgb(0, 0, 0) !important;
+}
+
+.navbar-logo {
+    height: 60px; /* Adjust the height as needed */
+    width: 60px;
+    margin-right: 15px;
+    border-radius: 8px;
+}
+
+.bg-primary {
+    background-color: rgba(39, 44, 56, 0.979) !important;
+}
+
+.navbar {
+    background-color: rgba(65, 105, 225, 0.185);
+    justify-content: flex-start;
+}
+
+a {
+    color: rgb(230, 217, 217) !important;
+}
+
+a:hover {
+    color: darkblue;
+}
+
+.lead {
+    text-align: center;
+}
+
+.card-body {
+    border-radius: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+/* New media queries for responsiveness */
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Full width on smaller screens */
+        padding: 1em; /* Adjust padding */
+    }
+    
+    .navbar-logo {
+        height: 50px; /* Adjust logo size for smaller screens */
+        width: 50px;
+    }
+}
