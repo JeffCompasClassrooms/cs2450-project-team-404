@@ -3,6 +3,9 @@ import re
 def verify_username(username):
     if(len(username) < 6):
         return False
+
+    if(len(username) > 20):
+        return False
     return True
 
 

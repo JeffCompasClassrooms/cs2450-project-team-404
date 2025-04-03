@@ -45,8 +45,8 @@ def change_username():
         flask.flash('Passwords do not match.', 'warning')
         return flask.redirect(flask.url_for('settings.settings'))
     
-    if (len(new_username) < 3 or len(new_username) > 20):
-        flask.flash('New username must be more than 3 characters, and less than 20 characters.', 'warning')
+    if (not verify.verify_username(new_username)):
+        flask.flash('New username must be more than 6 characters, and less than 20 characters.', 'warning')
         return flask.redirect(flask.url_for('settings.settings'))
     
     if(users.get_user_by_name(db, new_username)):
