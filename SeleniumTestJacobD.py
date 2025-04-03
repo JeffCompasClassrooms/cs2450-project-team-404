@@ -1,20 +1,14 @@
-"""from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service"""
-"""import time"""
-
-# Specify the path to ChromeDriver
-"""chrome_driver_path = "/usr/local/bin/chromedriver" #you'll need to put the path to YOUR chromedriver here
-service = Service(chrome_driver_path)
-driver = webdriver.Chrome(service=service)"""
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-chrome_driver_path = "/usr/local/bin/chromedriver"
-service = Service(ChromeDriverManager().install())
+# Specify the path to ChromeDriver
+chrome_driver_path = "/usr/local/bin/chromedriver" #you'll need to put the path to YOUR chromedriver here
+service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=service)
+
+
 
 
 
