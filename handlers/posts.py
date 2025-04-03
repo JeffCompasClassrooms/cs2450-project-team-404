@@ -58,7 +58,12 @@ def like():
         return flask.redirect(flask.url_for('login.loginscreen'))
     
     post_id = flask.request.form.get('post_id')
-    posts.like_post(db, post_id)
+
+    if(not posts.get_like(db, post_id)):
+        posts.like_post(db, post_id)
+
+    else:
+        posts.remove_like(db, post_id)
 
     return flask.redirect(flask.url_for('login.index'))
 
@@ -75,6 +80,11 @@ def dislike():
         return flask.redirect(flask.url_for('login.loginscreen'))
     
     post_id = flask.request.form.get('post_id')
-    posts.dislike_post(db, post_id)
+
+    if(not posts.get_dislike(db, post_id)):
+        posts.dislike_post(db, post_id)
+
+    else:
+        posts.remove_dislike(db, post_id)
 
     return flask.redirect(flask.url_for('login.index'))
