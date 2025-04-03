@@ -27,9 +27,50 @@ def like_post(db, id):
     post_data['likes'] += 1
     posts.update(post_data, Post.id == id)
 
+
+def remove_like(db, id):
+    posts = db.table('posts')
+    Post = tinydb.Query()
+    post_data = posts.get(Post.id == id)
+    post_data['likes'] -= 1
+    posts.update(post_data, Post.id == id)
+
+
+
+def get_like(db, id):
+    posts = db.table('posts')
+    Post = tinydb.Query()
+    post_data = posts.get(Post.id == id)
+
+    if(post_data['likes'] > 0):
+        return True
+
+    return False
+
 def dislike_post(db, id):
     posts = db.table('posts')
     Post = tinydb.Query()
     post_data = posts.get(Post.id == id)
     post_data['dislikes'] += 1
+    posts.update(post_data, Post.id == id)
+
+
+
+
+def get_dislike(db, id):
+    posts = db.table('posts')
+    Post = tinydb.Query()
+    post_data = posts.get(Post.id == id)
+
+    if(post_data['dislikes'] > 0):
+        return True
+
+    return False
+
+
+def remove_dislike(db, id):
+    posts = db.table('posts')
+    Post = tinydb.Query()
+    post_data = posts.get(Post.id == id)
+    post_data['dislikes'] -= 1
     posts.update(post_data, Post.id == id)
