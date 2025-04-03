@@ -129,12 +129,28 @@ def index():
     posts_table = db.table("posts")
     all_posts = []
     user_tags = users.get_user_tags(db, username)
-    for post in posts_table.all():
-        for tag in post['tags']:
-            if tag in user_tags:
-                all_posts.append(post)
+    # for post in posts_table.all():
+    #     for tag in post['tags']:
+    #         if tag in user_tags:
+    #             all_posts.append(post)
     #for friend in friends + [user]:
         #all_posts += posts.get_posts(db, friend)
+
+    # Retrieve the selected tag
+    selected_tag = flask.request.args.get('tag')
+
+    # Filter posts based on tag
+    for post in posts_table.all():
+        if selected_tag:
+            # include only posts with the tag
+            if selected_tag in post['tags']:
+                all_posts.append(post)
+        else:
+            # include all posts with tags the user follows if no tag is selected
+            for tag in  post['tags']:
+                if tag in user_tags:
+                    all_posts.append(post)
+
     # sort posts
     sorted_posts = sorted(all_posts, key=lambda post: post['time'], reverse=True)
     tags_table = db.table("tags")
@@ -142,7 +158,7 @@ def index():
 
     return flask.render_template('feed.html', title=copy.title,
             subtitle=copy.subtitle, user=user, username=username,
-            friends=friends, posts=sorted_posts, tags=tags, user_tags=user_tags)
+            friends=friends, posts=sorted_posts, tags=tags, user_tags=user_tags, selected_tag=selected_tag)
 
 
 
