@@ -43,4 +43,4 @@ jobs:
         env:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
         run: |
-          python3 SeleniumTestJacobD.py
+          python SeleniumTestJacobD.py
