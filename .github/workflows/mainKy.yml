@@ -30,7 +30,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r md_files/requirements.txt
+          pip install -r requirements.txt
           pip install selenium
 
       - name: Start Flask app in background
