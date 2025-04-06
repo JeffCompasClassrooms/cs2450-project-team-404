@@ -1,4 +1,4 @@
-from selenium import webdriver
+'''from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.service import Service
@@ -7,7 +7,20 @@ import time
 # Specify the path to ChromeDriver
 chrome_driver_path = "/usr/local/bin/chromedriver" #you'll need to put the path to YOUR chromedriver here
 service = Service(chrome_driver_path)
-driver = webdriver.Chrome(service=service)
+driver = webdriver.Chrome(service=service)'''
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+import time
+
+options = Options()
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
+# Don't specify chromedriver path!
+driver = webdriver.Chrome(options=options)
 
 try:
     tests_passed = 0
