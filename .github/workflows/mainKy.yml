@@ -32,10 +32,12 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install selenium
+          
       - name: Start Flask app in background
         run: |
           nohup python youface.py > flask.log 2>&1 &
           sleep 10
+
       - name: Run Selenium tests
         env:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
