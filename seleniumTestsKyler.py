@@ -25,7 +25,7 @@ driver = webdriver.Chrome(options=options)
 try:
     tests_passed = 0
     tests_ran = 0
-    driver.get("http://localhost:3000")
+    driver.get("http://localhost:5000")
     time.sleep(2)
 
     # Find and fill the username field
