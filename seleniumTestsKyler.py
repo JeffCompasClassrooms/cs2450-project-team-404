@@ -34,7 +34,7 @@ try:
 
     # Find and fill the password field
     password_field = driver.find_element(By.NAME, "password")  # Change based on actual element
-    password_field.send_keys("Pass1234")  # Replace with your actual password
+    password_field.send_keys("Pass1234!")  # Replace with your actual password
 
     # Submit the login form
     login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
