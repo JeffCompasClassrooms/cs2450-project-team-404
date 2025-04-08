@@ -39,11 +39,11 @@ try:
     # Submit the login form
     login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
     login_button.click()
-    time.sleep(4)
+    time.sleep(5)
 
 
     print("--= Beginning Tests - Kyler Sousley =--")
-    logout_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit'][name='logout']")
+    logout_button = driver.find_element(By.CSS_SELECTOR, "button[name='logout']")
     time.sleep(2)
     if logout_button:
         print("[PASSED] - Logout Button Exists")
