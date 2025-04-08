@@ -42,7 +42,7 @@ try:
 
 
     print("--= Beginning Tests - Kyler Sousley =--")
-    logout_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit'][name='logout']")
+    logout_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit'][class='form-control btn btn-secondary'][name='logout']")
     time.sleep(2)
     if logout_button:
         print("[PASSED] - Logout Button Exists")
