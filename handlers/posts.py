@@ -88,3 +88,42 @@ def dislike():
         posts.remove_dislike(db, post_id)
 
     return flask.redirect(flask.url_for('login.index'))
+
+@blueprint.route('/comment', methods=['POST'])
+def comment():
+    db = helpers.load_db()
+
+    username = flask.request.cookies.get('username')
+    password = flask.request.cookies.get('password')
+
+    user = users.get_user(db, username, password)
+    if not user:
+        flask.flash('You need to be logged in to do that.', 'danger')
+        return flask.redirect(flask.url_for('login.loginscreen'))
+    
+    comment = flask.request.form.get('comment')
+    post_id = flask.request.form.get('post_id')
+    print(post_id)
+
+    posts.add_comment(db, user, post_id, comment)
+
+    return flask.redirect(flask.url_for('login.index'))
+
+@blueprint.route('/commentdelete', methods=['POST'])
+def comment_delete():
+    """Deletes a comment."""
+    db = helpers.load_db()
+
+    username = flask.request.cookies.get('username')
+    password = flask.request.cookies.get('password')
+
+    user = users.get_user(db, username, password)
+    if not user:
+        flask.flash('You need to be logged in to do that.', 'danger')
+        return flask.redirect(flask.url_for('login.loginscreen'))
+    
+    comment_id = flask.request.form.get('comment_id')
+    post_id = flask.request.form.get('post_id')
+    posts.delete_comment(db, post_id, comment_id)
+
+    return flask.redirect(flask.url_for('login.index'))
