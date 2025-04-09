@@ -39,6 +39,7 @@ try:
     # Submit the login form
     login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
     login_button.click()
+    print("logged in")
     time.sleep(4)
 
 
