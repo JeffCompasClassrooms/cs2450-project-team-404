@@ -1,12 +1,20 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 import time
+
+options = Options()
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
+driver = webdriver.Chrome(options=options)
 
 # Specify the path to ChromeDriver
 chrome_driver_path = "/home/cmaxwell2/chromedriver-linux64/chromedriver" #you'll need to put the path to YOUR chromedriver here
 service = Service(chrome_driver_path)
-driver = webdriver.Chrome(service=service)
+#driver = webdriver.Chrome(service=service)
 
 try:
     driver.get("http://localhost:5000")
