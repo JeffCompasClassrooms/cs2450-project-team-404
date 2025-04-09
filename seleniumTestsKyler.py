@@ -44,7 +44,7 @@ try:
 
 
     print("--= Beginning Tests - Kyler Sousley =--")
-    music_checkbox = driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][value='Login']")
+    music_checkbox = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
     time.sleep(2)
     if music_checkbox:
         print("[PASSED] - Music Tag Checkbox Exists")
