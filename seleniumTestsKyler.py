@@ -39,10 +39,19 @@ try:
     # Submit the login form
     login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
     login_button.click()
-    time.sleep(10)
+    time.sleep(4)
 
 
     print("--= Beginning Tests - Kyler Sousley =--")
+    music_checkbox = driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][value='Music']")
+    time.sleep(2)
+    if music_checkbox:
+        print("[PASSED] - Music Tag Checkbox Exists")
+        tests_passed += 1
+    else:
+        print("[FAILED] - Music Tag Checkbox Not Found")
+    tests_ran += 1
+    
     logout_button = driver.find_element(By.CSS_SELECTOR, "button[name='logout']")
     time.sleep(2)
     if logout_button:
@@ -52,14 +61,14 @@ try:
         print("[FAILED] - Logout Button Not Found")
     tests_ran += 1
 
-    music_checkbox = driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][value='Music']")
+    '''music_checkbox = driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][value='Music']")
     time.sleep(2)
     if music_checkbox:
         print("[PASSED] - Music Tag Checkbox Exists")
         tests_passed += 1
     else:
         print("[FAILED] - Music Tag Checkbox Not Found")
-    tests_ran += 1
+    tests_ran += 1'''
 
     astronomy_checkbox = driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][value='Astronomy']")
     time.sleep(2)
