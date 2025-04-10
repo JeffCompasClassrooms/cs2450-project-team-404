@@ -20,6 +20,7 @@ try:
     driver.get("http://localhost:5000")
     time.sleep(2)
 
+    '''
     # Find and fill the username field
     username_field = driver.find_element(By.NAME, "username")  # Change based on actual element
     username_field.send_keys("test123")  # Replace with your actual username
@@ -31,6 +32,37 @@ try:
     # Submit the login form
     login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
     login_button.click()
+    '''
+
+    # find sign up button
+    signup_btn = driver.find_element(By.ID, "signup")
+    signup_btn.click()
+
+    time.sleep(2)
+
+    # Find and fill the username field
+    username_field = driver.find_element(By.NAME, "username")
+    username_field.send_keys("test123") 
+
+    # Find and fill the email field
+    email_field = driver.find_element(By.NAME, "email")
+    email_field.send_keys("foo@gmail.com")
+
+    # Find and fill the password field
+    password_field = driver.find_element(By.NAME, "password")
+    password_field.send_keys("Test1234")
+    cpassword_field = driver.find_element(By.NAME, "cpassword")
+    cpassword_field.send_keys("Test1234")
+
+    # Find and fill the tags form
+    music_tag = driver.find_element(By.ID, "tag_Music")
+    astronomy_tag = driver.find_element(By.ID, "tag_Astronomy")
+    music_tag.click()
+    astronomy_tag.click()
+
+    # Submit the login form
+    register_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Register']")
+    register_button.click()
 
     time.sleep(2)
 
