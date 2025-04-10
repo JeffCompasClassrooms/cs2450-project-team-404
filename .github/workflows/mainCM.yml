@@ -21,8 +21,11 @@ jobs:
 
     
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
+
+      - name: Rename file
+        run: mv defaultdb.json db.json
 
       - name: Set up Python
         uses: actions/setup-python@v4
