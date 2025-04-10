@@ -66,6 +66,8 @@ try:
 
     time.sleep(2)
 
+    print("--= Register Successful =--")
+
     print("--= Beginning Tests - Creed Maxwell =--")
 
     testsPassed = 0
