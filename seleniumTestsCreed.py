@@ -20,7 +20,7 @@ try:
     driver.get("http://localhost:5000")
     time.sleep(2)
 
-    '''
+    
     # Find and fill the username field
     username_field = driver.find_element(By.NAME, "username")  # Change based on actual element
     username_field.send_keys("test123")  # Replace with your actual username
@@ -32,8 +32,8 @@ try:
     # Submit the login form
     login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
     login_button.click()
+    
     '''
-
     # find sign up button
     signup_btn = driver.find_element(By.ID, "signup")
     signup_btn.click()
@@ -67,6 +67,7 @@ try:
     time.sleep(2)
 
     print("--= Register Successful =--")
+    '''
 
     print("--= Beginning Tests - Creed Maxwell =--")
 
@@ -74,7 +75,7 @@ try:
     testsRan = 0
 
     # post button test
-    post_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit'][name='post-submit']")
+    post_button = driver.find_element(By.CSS_SELECTOR, "button[name='post-submit']")
 
     testsRan += 1
     if post_button:
