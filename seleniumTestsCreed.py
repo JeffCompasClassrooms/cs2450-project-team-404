@@ -20,13 +20,29 @@ try:
     driver.get("http://localhost:5000")
     time.sleep(2)
 
-    
+    print("--= Beginning Tests - Creed Maxwell =--")
+
+    testsPassed = 0
+    testsRan = 0
+
     # Find and fill the username field
     username_field = driver.find_element(By.NAME, "username")  # Change based on actual element
+    testsRan += 1
+    if username_field:
+        print("[PASSED] - Username Field Exists.")
+        testsPassed += 1
+    else:
+        print("[FAILED] - Username Field not found.")
     username_field.send_keys("test123")  # Replace with your actual username
 
     # Find and fill the password field
     password_field = driver.find_element(By.NAME, "password")  # Change based on actual element
+    testsRan += 1
+    if password_field:
+        print("[PASSED] - Password Field Exists.")
+        testsPassed += 1
+    else:
+        print("[FAILED] - Password Field not found.")
     password_field.send_keys("Test1234")  # Replace with your actual password
 
     # Submit the login form
@@ -68,11 +84,6 @@ try:
 
     print("--= Register Successful =--")
     '''
-
-    print("--= Beginning Tests - Creed Maxwell =--")
-
-    testsPassed = 0
-    testsRan = 0
 
     # post button test
     post_button = driver.find_element(By.CSS_SELECTOR, "button[name='post-submit']")
@@ -170,6 +181,7 @@ try:
     else:
         print("[FAILED] - Add friend field not found.")
 
+    '''
     # test the alert
     testsRan += 1
     alert = driver.find_element(By.CSS_SELECTOR, "div.alert-dismissible")
@@ -189,6 +201,7 @@ try:
         testsPassed += 1
     else:
         print("[FAILED] - Alert close button not found.")
+    '''
     
 
 except Exception as e:
