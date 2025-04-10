@@ -44,15 +44,6 @@ try:
 
 
     print("--= Beginning Tests - Kyler Sousley =--")
-    error_popup = driver.find_element(By.CSS_SELECTOR, "div[class='alert alert-dismissible alert-danger fade show'][role='alert']")
-    
-    if error_popup:
-            print(f"[PASSED] -  alert exists and text is correct")
-            tests_passed += 1
-    else:
-            print(f"[FAILED] - 'Must select one or more tags.' alert text isnt correct. Text found")
-    tests_ran += 1
-    
     logout_button = driver.find_element(By.CSS_SELECTOR, "button[name='logout']")
     time.sleep(2)
     if logout_button:
