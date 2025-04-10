@@ -135,6 +135,7 @@ try:
     time.sleep(2)
     submit_button = driver.find_element(By.CSS_SELECTOR, "button[name='post-submit']")
     submit_button.click()
+    time.sleep(5)
     tags_field = driver.find_elements(By.CSS_SELECTOR, "span[class='badge bg-secondary']")
 
     tags = [tag.text for tag in tags_field]
