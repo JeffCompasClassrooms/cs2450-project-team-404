@@ -105,6 +105,7 @@ try:
     time.sleep(2)
     submit_button = driver.find_element(By.CSS_SELECTOR, "button[name='post-submit']")
     submit_button.click()
+    time.sleep(5)
     post_text_field = driver.find_element(By.CSS_SELECTOR, "p[class='card-text']")
     post_text = post_text_field.text.strip()
     if post_text == 'selenium testing':
