@@ -1,0 +1,166 @@
+{
+    "posts": {
+        "24": {
+            "id": "FriendTest1742345035.938771",
+            "tags": [
+                "Gaming"
+            ],
+            "text": "Hello fellow gamers!",
+            "time": 1742345035.938771,
+            "user": "FriendTest"
+        },
+        "25": {
+            "id": "TestAccount21742345180.44654",
+            "tags": [
+                "Astronomy"
+            ],
+            "text": "yoyoyo",
+            "time": 1742345180.446539,
+            "user": "TestAccount2"
+        },
+        "26": {
+            "id": "KylerS1742349387.9771478",
+            "tags": [
+                "Gaming"
+            ],
+            "text": "testing stuff again",
+            "time": 1742349387.9771478,
+            "user": "KylerS"
+        },
+        "29": {
+            "id": "accWithTags1742419989.78588",
+            "tags": [
+                "Music"
+            ],
+            "text": "hello! i am new",
+            "time": 1742419989.7858791,
+            "user": "accWithTags"
+        },
+        "34": {
+            "comments": [
+                {
+                    "id": "KylerS1744057756.7298748",
+                    "text": "testing comment",
+                    "time": 1744057756.729874,
+                    "user": "KylerS"
+                },
+                {
+                    "id": "KylerSTest1744060314.836874",
+                    "text": "testing comment on other account",
+                    "time": 1744060314.836874,
+                    "user": "KylerSTest"
+                },
+                {
+                    "id": "KylerS1744061294.4563851",
+                    "text": "testing more comments",
+                    "time": 1744061294.456384,
+                    "user": "KylerS"
+                }
+            ],
+            "dislikes": 0,
+            "id": "KylerS1744057749.69954",
+            "likes": 0,
+            "tags": [
+                "Astronomy"
+            ],
+            "text": "testing comments",
+            "time": 1744057749.699539,
+            "user": "KylerS"
+        }
+    },
+    "tags": {
+        "1": {
+            "tag": "Astronomy"
+        },
+        "2": {
+            "tag": "Music"
+        },
+        "3": {
+            "tag": "Gaming"
+        }
+    },
+    "users": {
+        "1": {
+            "friends": [],
+            "password": "empyt",
+            "username": "empty"
+        },
+        "2": {
+            "email": "kylersousley@gmail.com",
+            "friends": [
+                "TestAccount2"
+            ],
+            "password": "Pass1234!",
+            "tags": [
+                "Music",
+                "Astronomy",
+                "Gaming"
+            ],
+            "username": "KylerS"
+        },
+        "3": {
+            "email": "fakeEmail@gmail.com",
+            "friends": [],
+            "password": "Fake1234",
+            "tags": [
+                "Gaming"
+            ],
+            "username": "FriendTest"
+        },
+        "4": {
+            "email": "fakeEmail@gmail.com",
+            "friends": [],
+            "password": "TestAccount",
+            "tags": [
+                "Astronomy"
+            ],
+            "username": "TestAccount2"
+        },
+        "5": {
+            "email": "fakeEmail@gmail.com",
+            "friends": [],
+            "password": "Pass1234",
+            "tags": [
+                "Music",
+                "Gaming"
+            ],
+            "username": "accWithTags"
+        },
+        "6": {
+            "email": "fakeEmail@gmail.com",
+            "friends": [
+                "accWithTags"
+            ],
+            "password": "Pass1234",
+            "tags": [
+                "Astronomy",
+                "Music",
+                "Gaming"
+            ],
+            "username": "accWithTags2"
+        },
+        "7": {
+            "email": "fakeEmail@gmail.com",
+            "friends": [],
+            "password": "Pass1234",
+            "tags": [
+                "Music",
+                "Gaming",
+                "Food",
+                "Cars"
+            ],
+            "username": "Carlover3000"
+        },
+        "8": {
+            "email": "fakeEmail@gmail.com",
+            "friends": [],
+            "password": "Pass1234!",
+            "tags": [
+                "Astronomy",
+                "Music",
+                "Gaming"
+            ],
+            "username": "KylerSTest"
+        }
+    }
+}
