@@ -154,7 +154,7 @@ try:
     tests_ran += 1
     
     add_friend_field = driver.find_element(By.CSS_SELECTOR, "input[name='name']")
-    add_friend_field.send_keys("TestAccount2")
+    add_friend_field.send_keys("KylerSTest")
     add_friend_submit = driver.find_element(By.CSS_SELECTOR, "button[name='addfriend']")
     add_friend_submit.click()
     time.sleep(2)
