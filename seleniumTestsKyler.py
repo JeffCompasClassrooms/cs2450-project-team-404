@@ -160,7 +160,7 @@ try:
     time.sleep(2)
     alert = driver.find_element(By.CSS_SELECTOR, "div[role='alert']")
     alert_text = alert.text.replace('×', '').strip()
-    if alert_text == "Friend TestAccount2 added successfully!":
+    if alert_text == "Friend accWithTags added successfully!":
         print("[PASSED] - Friend was added successfully")
         tests_passed += 1
     else:
