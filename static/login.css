@@ -26,9 +26,6 @@ div {
     background-color: rgba(39, 44, 56, 0.979) !important;
 }
 
-.LG {
-    
-}
 
 .navbar {
     background-color: rgba(65, 105, 225, 0.185);
@@ -44,6 +41,7 @@ a:hover {
 }
 
 .lead {
+    text-align: center;
     display : flex;
     justify-content: center;
     align-items: center;

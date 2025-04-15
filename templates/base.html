@@ -3,6 +3,8 @@
     <head>
       <meta charset="utf-8">
       <title>{{ title }}</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
       <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" type="text/css">
       <link rel="stylesheet" href="{{ url_for('static', filename='youface.css') }}" type="text/css">
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -55,9 +57,23 @@
         </div>
       </nav>
 
+                    
+      <div class="social1">
+        <a title="Our Instagram Account" target="_blank" href="https://www.instagram.com/resaletalhuda/"><i class="fa-brands fa-instagram"></i></a>
+        <a title="Our Twitter Account" target="_blank" href="https://twitter.com/resaltalhuda?t=kJ9Rc4nPUr9lZ1bKu2AuFg&s=09"><i class="fa-brands fa-twitter"></i></a>
+        <a title="Our Snapchat Account" target="_blank" href="https://www.snapchat.com/add/resaltalhuda?share_id=JDGvHLETQ4s&locale=en-GB"><i class="fa-brands fa-snapchat"></i></a>
+        <a title="Our Whatsapp Account" target="_blank" href="https://api.whatsapp.com/send/?phone=%2B966536020700&text&type=phone_number&app_absent=0"><i class="fa-brands fa-whatsapp"></i></a>
+        <a title="Our Facebook Account" target="_blank" href="https://www.facebook.com/ResaltAlhudaInternationalSchool/"><i title="Our Facebook" class="fa-brands fa-facebook-f"></i></a>
+
+
+      </div>
+      <!--Legend was here-->
+
       <div class="jumbotron">
         <div class="container flex">
           <h1 class="h">{{title}}</h1>
+        <div class="container">
+          <!--<h1><a href="/">{{title}}</a></h1-->
           <p class="lead">{{subtitle}}</p>
         </div>
       </div>
