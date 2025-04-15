@@ -22,7 +22,8 @@
 <!-- TODO: Get the unfriend functionality working-->
 
     <form method="post" action="/unfriend">
-        <input class="btn btn-danger" type="submit" name="type" value="Remove Friend">
+      <input type="hidden" name="user" value="{{ friend }}">
+      <button type="submit" class="btn btn-danger">Remove Friend</button>
     </form>
 </div>
 {% endblock %}

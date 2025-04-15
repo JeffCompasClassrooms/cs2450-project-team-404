@@ -42,7 +42,7 @@ def unfriend():
         flask.flash('You need to be logged in to do that.', 'danger')
         return flask.redirect(flask.url_for('login.loginscreen'))
 
-    name = flask.request.form.get('name')
+    name = flask.request.form.get('user')
     msg, category = users.remove_user_friend(db, user, name)
 
     flask.flash(msg, category)
