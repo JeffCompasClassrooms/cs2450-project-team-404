@@ -6,6 +6,7 @@
 
 
 {% endblock  %}{% block content %}
+<p class="lead">{{subtitle}}</p>
 <div class="row">
   <div class="col-sm-6 mx-auto">
     <div class="card card-body bg-light">
@@ -31,6 +32,8 @@
               <a rel="noopener noreferrer" href="{{ url_for('login.register') }}" class="" id="signup">Sign up</a>
 
            </p>
+            <input class="btn btn-success" type="submit" name="type" value="Create">
+            <input class="btn btn-danger" type="submit" name="type" value="Delete">
              <!-- <input class="btn btn-success" type="submit" name="type" value="Create"> -->
              <!-- <input class="btn btn-danger" type="submit" name="type" value="Delete"> -->
           </div>
