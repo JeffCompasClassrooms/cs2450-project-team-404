@@ -78,7 +78,7 @@
             <span class="badge bg-secondary">{{ tag }}</span>
           {% endfor %}
           </p>
-        
+            
         {% if post.user == username %}
         <form action="/postdelete" method="post">
           <input type="hidden" name="_method" value ="DELETE">
@@ -86,6 +86,35 @@
           <button type="submit" class="delete-post-btn">Delete</button>
         </form>
         {% endif %}
+
+        <button class="btn btn-link" type="button" onclick="toggleComments('{{ post.id }}', this)">
+          Show Comments
+        </button>        
+        
+        <div id="comments-{{ post.id }}" style="display: none;">
+          <h5 class="card-title">Comments</h5>
+          <form method="post" action="/comment">
+            <div class="form-group">
+              <textarea class="form-control" name="comment" rows="1" placeholder="What's on your mind?"></textarea>
+            </div>
+            <input type="hidden" name="post_id" value="{{ post.id }}">   
+            <button type="submit" class="btn btn-primary" name="post-comment">Comment</button>
+          </form>
+          {% for comment in post.comments %}
+          <div class="card-body">
+            <h4 class="card-title">{{ comment.user }}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{ comment.time|convert_time }}</h6>
+            <p class="card-text">{{ comment.text }}</p>
+            {% if comment.user == username %}
+            <form action="/commentdelete" method="post">
+              <input type="hidden" name="post_id" value="{{ post.id }}">
+              <input type="hidden" name="comment_id" value="{{ comment.id }}">
+              <button type="submit" class="delete-post-btn">Delete</button>
+            </form>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>        
       </div>
     </div>
     {% endfor %}
@@ -131,4 +160,17 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function toggleComments(postId, btn) {
+      const commentsDiv = document.getElementById('comments-' + postId);
+      if (commentsDiv.style.display === 'none') {
+        commentsDiv.style.display = 'block';
+        btn.textContent = 'Hide Comments';
+      } else {
+        commentsDiv.style.display = 'none';
+        btn.textContent = 'Show Comments';
+      }
+    }
+  </script>  
 {% endblock %}

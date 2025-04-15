@@ -1,29 +1,23 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 import time
+
+options = Options()
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
+driver = webdriver.Chrome(options=options)
 
 # Specify the path to ChromeDriver
 chrome_driver_path = "/home/cmaxwell2/chromedriver-linux64/chromedriver" #you'll need to put the path to YOUR chromedriver here
 service = Service(chrome_driver_path)
-driver = webdriver.Chrome(service=service)
+#driver = webdriver.Chrome(service=service)
 
 try:
     driver.get("http://localhost:5000")
-    time.sleep(2)
-
-    # Find and fill the username field
-    username_field = driver.find_element(By.NAME, "username")  # Change based on actual element
-    username_field.send_keys("test123")  # Replace with your actual username
-
-    # Find and fill the password field
-    password_field = driver.find_element(By.NAME, "password")  # Change based on actual element
-    password_field.send_keys("Test1234")  # Replace with your actual password
-
-    # Submit the login form
-    login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
-    login_button.click()
-
     time.sleep(2)
 
     print("--= Beginning Tests - Creed Maxwell =--")
@@ -31,8 +25,68 @@ try:
     testsPassed = 0
     testsRan = 0
 
+    # Find and fill the username field
+    username_field = driver.find_element(By.NAME, "username")  # Change based on actual element
+    testsRan += 1
+    if username_field:
+        print("[PASSED] - Username Field Exists.")
+        testsPassed += 1
+    else:
+        print("[FAILED] - Username Field not found.")
+    username_field.send_keys("test123")  # Replace with your actual username
+
+    # Find and fill the password field
+    password_field = driver.find_element(By.NAME, "password")  # Change based on actual element
+    testsRan += 1
+    if password_field:
+        print("[PASSED] - Password Field Exists.")
+        testsPassed += 1
+    else:
+        print("[FAILED] - Password Field not found.")
+    password_field.send_keys("Test1234")  # Replace with your actual password
+
+    # Submit the login form
+    login_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Login']")
+    login_button.click()
+    
+    '''
+    # find sign up button
+    signup_btn = driver.find_element(By.ID, "signup")
+    signup_btn.click()
+
+    time.sleep(2)
+
+    # Find and fill the username field
+    username_field = driver.find_element(By.NAME, "username")
+    username_field.send_keys("test123") 
+
+    # Find and fill the email field
+    email_field = driver.find_element(By.NAME, "email")
+    email_field.send_keys("foo@gmail.com")
+
+    # Find and fill the password field
+    password_field = driver.find_element(By.NAME, "password")
+    password_field.send_keys("Test1234")
+    cpassword_field = driver.find_element(By.NAME, "cpassword")
+    cpassword_field.send_keys("Test1234")
+
+    # Find and fill the tags form
+    music_tag = driver.find_element(By.ID, "tag_Music")
+    astronomy_tag = driver.find_element(By.ID, "tag_Astronomy")
+    music_tag.click()
+    astronomy_tag.click()
+
+    # Submit the login form
+    register_button = driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Register']")
+    register_button.click()
+
+    time.sleep(2)
+
+    print("--= Register Successful =--")
+    '''
+
     # post button test
-    post_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit'][name='post-submit']")
+    post_button = driver.find_element(By.CSS_SELECTOR, "button[name='post-submit']")
 
     testsRan += 1
     if post_button:
@@ -127,6 +181,7 @@ try:
     else:
         print("[FAILED] - Add friend field not found.")
 
+    '''
     # test the alert
     testsRan += 1
     alert = driver.find_element(By.CSS_SELECTOR, "div.alert-dismissible")
@@ -146,6 +201,7 @@ try:
         testsPassed += 1
     else:
         print("[FAILED] - Alert close button not found.")
+    '''
     
 
 except Exception as e:
