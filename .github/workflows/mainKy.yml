@@ -1,16 +1,16 @@
 name: Run Selenium Tests
 
-on: 
+on:
   push:
     branches:
-      - jacob-branch
+      - kyler-branch
+    
   pull_request:
     branches:
-      - jacob-branch
-    
+      - kyler-branch
 
 jobs:
-  selenium-tests:
+  selenium:
     runs-on: ubuntu-latest
 
     services:
@@ -19,28 +19,27 @@ jobs:
         ports:
           - 4444:4444
 
-    
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10'
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
           pip install selenium
-
+          
       - name: Start Flask app in background
         run: |
           nohup python youface.py > flask.log 2>&1 &
-          sleep 5
+          sleep 10
 
       - name: Run Selenium tests
         env:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
         run: |
-          python SeleniumTestJacobD.py
+          python seleniumTestsKyler.py

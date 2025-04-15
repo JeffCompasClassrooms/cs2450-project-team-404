@@ -3,10 +3,10 @@ name: Run Selenium Tests
 on: 
   push:
     branches:
-      - jacob-branch
+      - creed-branch
   pull_request:
     branches:
-      - jacob-branch
+      - creed-branch
     
 
 jobs:
@@ -21,13 +21,16 @@ jobs:
 
     
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
+
+      - name: Rename file
+        run: mv defaultdb.json db.json
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10'
+          python-version: '3.10'
 
       - name: Install dependencies
         run: |
@@ -43,4 +46,4 @@ jobs:
         env:
           SELENIUM_REMOTE_URL: http://localhost:4444/wd/hub
         run: |
-          python SeleniumTestJacobD.py
+          python3 seleniumTestsCreed.py
