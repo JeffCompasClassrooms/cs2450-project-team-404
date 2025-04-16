@@ -1,4 +1,7 @@
 title = 'Taggle' 
 title2 = 'Create User'
-subtitle = "From the stars to a single note we have a group for you!"
+subtitle = ""
 subtitle2 = "Please pick one or more Tags."
+
+#main
+

@@ -1,4 +1,7 @@
 
+h1 {
+    font-size: 3em;
+}
 
 
 body {
@@ -7,10 +10,7 @@ body {
     
 }
 
-.jumbotron p {
-    font-size: 1.2em;
-    color: rgb(8, 0, 0)!important;
-}
+
 
 div {
     color: rgb(0, 0, 0) !important;
@@ -27,27 +27,44 @@ div {
     background-color: rgba(39, 44, 56, 0.979) !important;
 }
 
-
-.navbar {
-    background-color: rgba(65, 105, 225, 0.185);
-    justify-content: flex-start;
+.card-login {
+    /*background-color: rgba(4, 28, 85, 0.979) !important;*/
+    width: 100%;
+    height: 100%;
+    /* Add your background pattern here */
+    --s: 25px; /* control the size */
+    --c1: #1eaaee!important;
+    --c2: #171717!important;
+  
+    --c: #0000 71%, var(--c1) 0 79%, #0000 0;
+    --_s: calc(var(--s) / 2) / calc(2 * var(--s)) calc(2 * var(--s));
+    background: linear-gradient(45deg, var(--c)) calc(var(--s) / -2) var(--_s),
+      linear-gradient(135deg, var(--c)) calc(var(--s) / 2) var(--_s),
+      radial-gradient(var(--c1) 35%, var(--c2) 37%) 0 0 / var(--s) var(--s)!important;
 }
-
-.u {
-    color: rgb(3, 0, 0) !important;
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+   
 }
 
 .h{
     position: absolute;
-    text-align: left;
+    margin-top: auto;
     top: 50%;
     left: -2.5%;
-    margin-top: 0.5rem;
-    margin-left: 0.5rem;
     transform: translate(-50%, -50%);
-    font-weight: bolder!important;
-    color: rgb(8, 0, 0)!important;
-    
+}
+
+.navbar {
+    background-color: rgba(65, 105, 225, 0.185);
+    justify-content: flex-start;
+}  
+
+.u {
+    color: rgb(230, 217, 217) !important;
 }
 
 a:hover {
@@ -55,7 +72,6 @@ a:hover {
 }
 
 .lead {
-    text-align: center;
     display : flex;
     justify-content: center;
     align-items: center;
@@ -64,33 +80,156 @@ a:hover {
 
 .card-body {
     border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.993); /* Added shadow for depth */
 }
 
+.card-login {
+    background-color: darkslategray!important;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 0.4em;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+  }
+  
+  .form:hover {
+    transform: scale(1.05);
+    border: 1px solid black;
+  }
+  
+  #heading {
+    text-align: center;
+    margin: 2em;
+    color: rgb(8, 109, 139);
+    font-size: 2.4em;
+  }
+  
+  .field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    border-radius: 25px;
+    padding: 0.6em;
+    border: none;
+    outline: none;
+    color: rgb(63, 58, 58);
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+  
+  .input-icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: white;
+  }
+  
+  .input-field {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #474343;
+  }
+  
+  .form .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+  }
+  
+  .button1 {
+    padding: 0.5em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-radius: 5px;
+    margin-right: 0.5em;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button1:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .button2 {
+    padding: 0.5em;
+    padding-left: 2.3em;
+    padding-right: 2.3em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button2:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  .button3 {
+    margin-bottom: 3em;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+  }
+  
+  .button3:hover {
+    background-color: red;
+    color: white;
+  }
+@media (max-width: 980px){ 
+  #heading {
+    font-size: 2.0em;
+ }
+}
 /* New media queries for responsiveness */
 @media (max-width: 768px) {
     .card {
         width: 100%; /* Full width on smaller screens */
         padding: 1em; /* Adjust padding */
     }
-    
+    #heading {
+      text-align: center;
+      margin: 2em;
+      color: rgb(8, 109, 139);
+      font-size: 1.4em;
+    }
     .navbar-logo {
         height: 50px; /* Adjust logo size for smaller screens */
         width: 50px;
     }
-}
-.flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
-.h{
-    position: absolute;
-    top: 50%;
-    left: -.5%;
-    transform: translate(-50%, -50%);
-    font-weight: bolder!important;
-    color: rgb(8, 0, 0)!important;
     
+    .flex{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .h{
+        position: absolute;
+        
+        margin-top: auto;
+        top: 50%;
+        left: -2.5%;
+        transform: translate(-50%, -50%);
+    }
 }
