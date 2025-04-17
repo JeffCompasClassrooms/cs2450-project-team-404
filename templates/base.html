@@ -3,8 +3,11 @@
     <head>
       <meta charset="utf-8">
       <title>{{ title }}</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
       <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}" type="text/css">
-      <link rel="stylesheet" href="{{ url_for('static', filename='youface.css') }}" type="text/css">
+      <link rel="stylesheet" href="{{ url_for('static'S, filename='youface.css') }}" type="text/css">
+      <link rel="icon" href="static/images/taggle_transparent_bg.png" type="image/png">
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       {% block head %} {% endblock %}
@@ -55,10 +58,25 @@
         </div>
       </nav>
 
+                    
+      <div class="social1">
+        <a title="Our Instagram Account" target="_blank" href="https://www.instagram.com/resaletalhuda/"><i class="fa-brands fa-instagram"></i></a>
+        <a title="Our Twitter Account" target="_blank" href="https://twitter.com/resaltalhuda?t=kJ9Rc4nPUr9lZ1bKu2AuFg&s=09"><i class="fa-brands fa-twitter"></i></a>
+        <a title="Our Snapchat Account" target="_blank" href="https://www.snapchat.com/add/resaltalhuda?share_id=JDGvHLETQ4s&locale=en-GB"><i class="fa-brands fa-snapchat"></i></a>
+        <a title="Our Whatsapp Account" target="_blank" href="https://api.whatsapp.com/send/?phone=%2B966536020700&text&type=phone_number&app_absent=0"><i class="fa-brands fa-whatsapp"></i></a>
+        <a title="Our Facebook Account" target="_blank" href="https://www.facebook.com/ResaltAlhudaInternationalSchool/"><i title="Our Facebook" class="fa-brands fa-facebook-f"></i></a>
+
+
+      </div>
+      <!--Legend was here-->
+
       <div class="jumbotron">
-        <div class="container flex">
+        <div class="container flex" class="containerB">
+          
+        <div class="container
+          <!--h1 class="h">{{title}}</h1-->
           <h1 class="h">{{title}}</h1>
-          <p class="lead">{{subtitle}}</p>
+
         </div>
       </div>
 
