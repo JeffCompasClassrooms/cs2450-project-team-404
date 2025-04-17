@@ -37,7 +37,7 @@ img {
 
 
 .bg-primary {
-    background-color: rgba(39, 44, 56, 0.979) !important;
+    background-color: rgba(39, 44, 56, 0.979)!important;
 }
 
 .card-login {
@@ -91,8 +91,13 @@ a:hover {
     margin: 0 auto !important;
 }
 
+.card {
+  /*background-color: rgba(39, 44, 56, 0.979)!important;*/
+  border-radius: 25px!important;  
+}
+
 .card-body {
-    border-radius: 25px;
+    border-radius: 25px!important;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.993); /* Added shadow for depth */
 }
 
