@@ -5,7 +5,7 @@ h1 {
 
 
 body {
-    background-color: rgba(47, 79, 79, 1);
+    background-color: rgb(30, 86, 94);
     font-family: Arial, sans-serif; /* Added font family for better readability */
     
 }
@@ -22,6 +22,19 @@ div {
     margin-right: 15px;
     border-radius: 8px;
 }
+
+img {
+  background-image: url('static/images/hero2.jpg'); /* Ensure the path is correct */
+  background-size: cover;
+  background-position: center;
+  width: 100%; /* Full width */
+  height: 300px; /* Adjust height as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* If text is overlaid */
+}
+
 
 .bg-primary {
     background-color: rgba(39, 44, 56, 0.979) !important;
