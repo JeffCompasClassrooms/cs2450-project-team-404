@@ -1,30 +1,40 @@
-*{
+/*{
   outline: blue 2px solid;
+}*/
+
+body{
+  height: 100vh;
 }
+
+/*{
+  outline: rgb(9, 85, 6) 2px solid;
+}*/
 body{
   height: 100vh;
 }
 
 .jumbotron {
-    padding: 0.5em 0.6em;
+    
+    padding: 0.0em 0.0em;
     background-color: rgba(65, 105, 225, 0.2); /* Added background color for visibility */
     border-radius: 10px; /* Added rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    
 }
 
 .jumbotron h1 {
     font-size: 2em;
-    color: white; /* Changed text color for better contrast */
+    color: rgb(5, 5, 5); /* Changed text color for better contrast */
 }
 
 .jumbotron p {
     font-size: 1.2em;
-    color: white; /* Changed text color for better contrast */
+    color: rgb(8, 8, 8); /* Changed text color for better contrast */
 }
 
 .jumbotron .btn {
     padding: 0.5em;
-    background-color: #007bff; /* Ensured button color matches theme */
+    background-color: #161516; /* Ensured button color matches theme */
     border-radius: 5px; /* Added rounded corners for buttons */
 }
 
@@ -62,7 +72,7 @@ body{
 /* Selected state */
 .form-check-input:checked + .form-check-label {
     transition: 0.5s;
-    color: white; /* Selected text color */
+    color: rgb(73, 65, 65); /* Selected text color */
     border-color: royalblue;
 }
 
