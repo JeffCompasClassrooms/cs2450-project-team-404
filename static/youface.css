@@ -1,6 +1,6 @@
-*{
+/*{
   outline: blue 2px solid;
-}
+}*/
 
 body{
   height: 100vh;
@@ -14,7 +14,8 @@ body{
 }
 
 .jumbotron {
-    padding: 0.5em 0.6em;
+    
+    padding: 0.0em 0.0em;
     background-color: rgba(65, 105, 225, 0.2); /* Added background color for visibility */
     border-radius: 10px; /* Added rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
