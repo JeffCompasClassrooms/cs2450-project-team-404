@@ -57,18 +57,22 @@
         <div style="display: flex; align-items: center; gap: 10px;">
           <form action="/likepost" method="post">
             <input type="hidden" name="post_id" value="{{ post.id }}">
+            <input type="hidden" name="likes" value="{{ post.likes }}">
+            <input type="hidden" name="dislikes" value="{{ post.dislikes }}">
             <button type="submit" class="btn btn-primary" name="like-post">like</button>
           </form>
           <p class="card-text">
-            {{ post.likes }}
+            {{ post.likes | length }}
           </p>
 
           <form action="/dislikepost" method="post">
             <input type="hidden" name="post_id" value="{{ post.id }}">
+            <input type="hidden" name="dislikes" value="{{ post.dislikes }}">
+            <input type="hidden" name="likes" value="{{ post.likes }}">
             <button type="submit" class="btn btn-primary" name="dislike-post">dislike</button>
           </form>
           <p class="card-text">
-            {{ post.dislikes }}
+            {{ post.dislikes | length }}
           </p>
         </div>
           
