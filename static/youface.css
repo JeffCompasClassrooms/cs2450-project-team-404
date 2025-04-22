@@ -8,12 +8,21 @@ body{
 .jumbotron {
     
     padding: 0.0em 0.0em;
-    background-color: rgba(65, 105, 225, 0.2); /* Added background color for visibility */
+    background-color: #121212; /* Added background color for visibility */
     border-radius: 10px; /* Added rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
-    
+    background-image: url(static/images/hero2.jpg);
+    background-size: cover; /* Ensures the background image covers the entire jumbotron */
 }
-
+.hero{
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+}
 .jumbotron h1 {
     font-size: 2em;
     color: rgb(5, 5, 5); /* Changed text color for better contrast */
@@ -130,4 +139,11 @@ body{
   }
   #navbarNav{
     width: max-content;
+  }
+  .navbar-logo{
+    display: flex;
+    width: 100px;
+  }
+  .container{
+    width: 100% !important;
   }
