@@ -67,9 +67,6 @@ def registeruser():
     c_password = flask.request.form.get('cpassword') # Used to confirm if password was typed correctly
 
 
-
-
-
     if(c_password != password):
         flask.flash('Passwords do not match.', 'warning')
         return flask.redirect(flask.url_for('login.register'))
@@ -82,6 +79,11 @@ def registeruser():
 
     if(not verify.verify_username(username)):
         flask.flash('You are already logged in.', 'warning')
+        return flask.redirect(flask.url_for('login.register'))
+
+
+    if(not verify.verify_email(email)):
+        flask.flash('Invalid email address. Please check to make sure you entered your email correctly', 'warning')
         return flask.redirect(flask.url_for('login.register'))
 
     users.new_user(db, username, email, password)
